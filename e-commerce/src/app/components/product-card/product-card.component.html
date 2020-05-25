@@ -1,0 +1,45 @@
+<div class="col mb-4">
+  <div class="card">
+    <div class="view overlay">
+      <img class="card-img-top" [src]="product.image" [alt]="product.name" />
+      <a [routerLink]="'/products/' + product._id">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <div class="card-body">
+      <h4 class="card-title">{{ product.name }}</h4>
+
+      <p class="card-text">{{ product.short }}</p>
+
+      <a [routerLink]="'/products/' + product._id" class="btn btn-grey btn-md">
+        Visa Produkt
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="col mb-4">
+  <div class="card">
+    <div class="view overlay">
+      <img class="card-img-top" [src]="product.image" [alt]="product.name" />
+      <a href="#!">
+        <div class="mask rgba-white-slight"></div>
+      </a>
+    </div>
+
+    <div class="card-body">
+      <a [routerLink]="'/products/' + product._id">{{ product.name }}</a>
+
+      <p class="card-text">{{ product.price }}</p>
+
+      <button
+        type="button"
+        class="btn btn-light-blue btn-md"
+        (click)="AddToCart(product._id)"
+      >
+        Add To Cart
+      </button>
+    </div>
+  </div>
+</div> -->

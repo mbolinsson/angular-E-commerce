@@ -1,0 +1,226 @@
+<div class="container my-5">
+  <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        formControlName="firstName"
+        class="form-control"
+        [class.is-invalid]="
+          regForm.controls.firstName.invalid &&
+          regForm.controls.firstName.touched
+        "
+        autocomplete="off"
+      />
+
+      <div
+        *ngIf="
+          regForm.controls.firstName.invalid &&
+          regForm.controls.firstName.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="regForm.controls.firstName.errors.required"
+          >First name is required.</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="regForm.controls.firstName.errors.minlength"
+          >First name must contain at least 2 characters.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        formControlName="lastName"
+        class="form-control"
+        [class.is-invalid]="
+          regForm.controls.lastName.invalid && regForm.controls.lastName.touched
+        "
+        autocomplete="off"
+      />
+
+      <div
+        *ngIf="
+          regForm.controls.lastName.invalid && regForm.controls.lastName.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="regForm.controls.lastName.errors.required"
+          >Last name is required.</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="regForm.controls.lastName.errors.minlength"
+          >Last name must contain at least 2 characters.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="addressline">Addressline</label>
+      <input
+        type="text"
+        id="addressline"
+        formControlName="addressline"
+        class="form-control"
+        [class.is-invalid]="
+          regForm.controls.addressline.invalid &&
+          regForm.controls.addressline.touched
+        "
+        autocomplete="off"
+      />
+
+      <div
+        *ngIf="
+          regForm.controls.addressline.invalid &&
+          regForm.controls.addressline.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="regForm.controls.addressline.errors.required"
+          >Addressline is required.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="postalCode">Postal Code</label>
+      <input
+        type="text"
+        id="postalCode"
+        formControlName="postalCode"
+        class="form-control"
+        [class.is-invalid]="
+          regForm.controls.postalCode.invalid &&
+          regForm.controls.postalCode.touched
+        "
+        autocomplete="off"
+        maxlength="5"
+      />
+
+      <div
+        *ngIf="
+          regForm.controls.postalCode.invalid &&
+          regForm.controls.postalCode.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="regForm.controls.postalCode.errors.required"
+          >Postal code is required.</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="
+            regForm.controls.postalCode.errors.minlength ||
+            regForm.controls.postalCode.errors.maxlength
+          "
+          >Postal code must contain 5 numbers.</small
+        >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input
+        type="text"
+        id="city"
+        formControlName="city"
+        class="form-control"
+        [class.is-invalid]="
+          regForm.controls.city.invalid && regForm.controls.city.touched
+        "
+        autocomplete="off"
+      />
+
+      <div
+        *ngIf="regForm.controls.city.invalid && regForm.controls.city.touched"
+      >
+        <small class="text-danger" *ngIf="regForm.controls.city.errors.required"
+          >City is required.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="addProgrammingSkill()"
+      >
+        Add Programming Skills
+      </button>
+    </div>
+    <div
+      class="form-group"
+      formArrayName="programmingSkills"
+      *ngFor="let skill of programmingSkills.controls; let i = index"
+    >
+      <div class="form-group">
+        <label [for]="i">Skill {{ i + 1 }}</label>
+
+        <div class="form-row">
+          <div class="col-3">
+            <input
+              type="text"
+              [id]="i"
+              [formControlName]="i"
+              class="form-control"
+              autocomplete="off"
+            />
+          </div>
+          <div class="col-1" (click)="removeProgrammingSkill(i)">
+            <i class="fas fa-times fa-2x mt-1 text-muted cursor"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4" />
+    <div class="form-check">
+      <input
+        type="checkbox"
+        id="acceptTerms"
+        formControlName="acceptTerms"
+        class="form-check-input cursor"
+      />
+      <label
+        for="acceptTerms"
+        class="cursor"
+        [class.text-danger]="
+          regForm.controls.acceptTerms.invalid &&
+          regForm.controls.acceptTerms.dirty
+        "
+        >I have read and agree to the Terms and Conditions.</label
+      >
+
+      <div
+        *ngIf="
+          regForm.controls.acceptTerms.invalid &&
+          regForm.controls.acceptTerms.dirty
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="regForm.controls.acceptTerms.errors.required"
+          >You must agree to the Terms and Conditions.</small
+        >
+      </div>
+    </div>
+
+    <button
+      [disabled]="!regForm.valid"
+      type="submit"
+      class="mt-5 btn btn-default"
+    >
+      Complete Registration
+    </button>
+  </form>
+</div>
