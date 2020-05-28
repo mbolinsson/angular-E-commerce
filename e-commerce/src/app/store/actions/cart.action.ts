@@ -1,10 +1,10 @@
 import { Action } from '@ngrx/store';
 import { ActionTypes } from '../actiontypes';
-import { ProductModel } from '../../models/product.model';
+import { CartModel } from '../../models/cart.model';
 
 export class Add implements Action {
   public readonly type = ActionTypes.CART_ADD;
-  constructor(public payload: ProductModel) {}
+  constructor(public payload: CartModel) {}
 }
 
 export class Remove implements Action {

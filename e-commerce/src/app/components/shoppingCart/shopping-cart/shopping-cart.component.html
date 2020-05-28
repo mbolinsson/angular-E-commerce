@@ -10,6 +10,11 @@
     <div className="dropdown-divider"></div>
   </div> */} -->
 
+  <app-shopping-cart-product
+    *ngFor="let item of cart | async"
+    [cart]="item"
+  ></app-shopping-cart-product>
+
   <div class="p-2 d-flex justify-content-between align-items-center">
     <div class="ml-2">
       <div class="total-price">

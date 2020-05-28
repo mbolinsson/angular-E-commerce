@@ -15,8 +15,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { ProdcutsReducer } from '../app/store/reducers/products.reducer';
 import { ProductViewComponent } from './views/product-view/product-view.component';
-import { ProdcutReducer } from './store/reducers/product.reducer';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ProductReducer } from './store/reducers/product.reducer';
+import { ShoppingCartComponent } from './components/shoppingCart/shopping-cart/shopping-cart.component';
+import { ShoppingCartProductComponent } from './components/shoppingCart/shopping-cart-product/shopping-cart-product.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     ProductCardComponent,
     ProductViewComponent,
     ShoppingCartComponent,
+    ShoppingCartProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
       {
         cart: CartReducer,
         products: ProdcutsReducer,
-        product: ProdcutReducer,
+        product: ProductReducer,
       },
       {}
     ),
