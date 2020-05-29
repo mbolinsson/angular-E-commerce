@@ -19,6 +19,7 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private store: Store<IAppState>) {}
 
   ngOnInit(): void {
-    this.cart = this.store.select((store) => store.cart);
+    this.cart = this.store.select((store) => store.cart.items);
+    console.log(this.cart);
   }
 }

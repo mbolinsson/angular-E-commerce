@@ -1,21 +1,26 @@
 import { Actions } from '../actions/cart.action';
 import { ActionTypes } from '../actiontypes';
 import { CartModel } from '../../models/cart.model';
+import { CartStateModel } from '../../models/cartstate.model';
 
-const initialState: Array<CartModel> = [];
+const initialState = {
+  items: [],
+  totalQuantity: 0,
+};
 
 export function CartReducer(state = initialState, action: Actions) {
   switch (action.type) {
     case ActionTypes.CART_ADD:
-      const hasProduct = state.some((item) => {
+      const hasProduct = state.items.some((item) => {
+        console.log(state.items);
         return item.product._id === action.payload.product._id;
       });
 
       if (!hasProduct) {
-        return [...state, action.payload];
+        return [...state.items, action.payload];
       }
 
-      return state.map((item) => {
+      return state.items.map((item) => {
         if (item.product._id === action.payload.product._id) {
           return {
             ...item,
@@ -28,7 +33,7 @@ export function CartReducer(state = initialState, action: Actions) {
 
     case ActionTypes.CART_REMOVE:
       console.log(action);
-      return state.filter((item) => item.product._id !== action.id);
+      return state.items.filter((item) => item.product._id !== action.id);
 
     default:
       return state;
