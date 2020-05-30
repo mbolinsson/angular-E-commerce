@@ -5,7 +5,9 @@ export interface ProductModel {
   shortDescription?: string;
   image?: string;
   details?: string;
+  inStockAmount?: number;
   shipping?: string;
   price?: number;
-  short?: string;
+  modified?: string;
+  created?: string;
 }

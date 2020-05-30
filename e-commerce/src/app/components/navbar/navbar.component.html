@@ -27,7 +27,7 @@
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-            >quantity
+            >{{ totalCartQuantity | async }}
             <i class="fas fa-shopping-cart"></i>
           </a>
           <div
@@ -35,6 +35,9 @@
           >
             <app-shopping-cart></app-shopping-cart>
           </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="signin">Sign In</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="register">Register</a>

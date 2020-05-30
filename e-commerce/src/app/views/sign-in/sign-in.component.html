@@ -1,0 +1,76 @@
+<div class="container my-5">
+  <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+    <h3>Sign In</h3>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        id="email"
+        formControlName="email"
+        class="form-control"
+        [class.is-invalid]="
+          signInForm.controls.email.invalid && signInForm.controls.email.touched
+        "
+        autocomplete="off"
+      />
+
+      <div
+        *ngIf="
+          signInForm.controls.email.invalid && signInForm.controls.email.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="signInForm.controls.email.errors.required"
+          >Email name is required.</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="signInForm.controls.firstName.errors.minlength"
+          >Email must contain at least 6 characters.</small
+        >
+      </div>
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+        [class.is-invalid]="
+          signInForm.controls.password.invalid &&
+          signInForm.controls.password.touched
+        "
+        autocomplete="off"
+      />
+
+      <div
+        *ngIf="
+          signInForm.controls.password.invalid &&
+          signInForm.controls.password.touched
+        "
+      >
+        <small
+          class="text-danger"
+          *ngIf="signInForm.controls.firstName.errors.required"
+          >Password is required.</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="signInForm.controls.firstName.errors.minlength"
+          >Password must contain at least 5 characters.</small
+        >
+      </div>
+    </div>
+
+    <hr class="my-4" />
+
+    <button
+      [disabled]="!signInForm.valid"
+      type="submit"
+      class="mt-5 btn btn-default"
+    >
+      Sign In
+    </button>
+  </form>
+</div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// import { Observable } from 'rxjs';
+
 import { IAppState } from '../../../models/appstate.model';
 import { Store } from '@ngrx/store';
-// import { ProductModel } from '../../../models/product.model';
+
 import { Observable } from 'rxjs';
 
 import { CartModel } from 'src/app/models/cart.model';
@@ -20,6 +20,5 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.cart = this.store.select((store) => store.cart.items);
-    console.log(this.cart);
   }
 }

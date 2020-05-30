@@ -1,4 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ɵgetComponentViewDefinitionFactory,
+} from '@angular/core';
 import { CartModel } from '../../../models/cart.model';
 import { CartService } from '../../../services/cart.service';
 import { IAppState } from '../../../models/appstate.model';
@@ -13,14 +18,15 @@ import { ProductModel } from 'src/app/models/product.model';
 export class ShoppingCartProductComponent implements OnInit {
   public product: ProductModel;
 
-  @Input() cart: CartModel;
+  @Input() item: CartModel;
+
   constructor(
     private store: Store<IAppState>,
     private CartService: CartService
   ) {}
 
   ngOnInit(): void {
-    console.log(this.cart);
+    console.log(this.item);
     this.store
       .select((store) => store.product)
       .subscribe((res) => (this.product = res));

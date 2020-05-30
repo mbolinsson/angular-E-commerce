@@ -18,6 +18,7 @@ import { ProductViewComponent } from './views/product-view/product-view.componen
 import { ProductReducer } from './store/reducers/product.reducer';
 import { ShoppingCartComponent } from './components/shoppingCart/shopping-cart/shopping-cart.component';
 import { ShoppingCartProductComponent } from './components/shoppingCart/shopping-cart-product/shopping-cart-product.component';
+import { SignInComponent } from './views/sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ShoppingCartProductComponent } from './components/shoppingCart/shopping
     ProductViewComponent,
     ShoppingCartComponent,
     ShoppingCartProductComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,

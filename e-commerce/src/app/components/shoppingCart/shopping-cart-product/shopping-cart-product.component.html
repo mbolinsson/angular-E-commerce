@@ -3,16 +3,16 @@
     <div class="p-2 d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center">
         <img
-          src="{{ cart.product.image }}"
+          src="{{ item.product.image }}"
           alt="product pic"
           class="img-fluid shoppingcart-image-width"
         />
         <div>
           <div>
-            <strong>{{ cart.product.name }}</strong>
+            <strong>{{ item.product.name }}</strong>
           </div>
           <div>
-            <small> {{ cart.quantity }} x {{ cart.product.price }}SEK </small>
+            <small> {{ item.quantity }} x {{ item.product.price }}SEK </small>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
 
         <div class="btn-group btn-group-sm" role="group" aria-label="trash">
           <button
-            (click)="Remove(cart.product._id)"
+            (click)="Remove(item.product._id)"
             class="btn btn-danger px-3"
           >
             <i class="fas fa-trash"></i>
