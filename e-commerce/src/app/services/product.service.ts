@@ -12,7 +12,6 @@ export class ProductService {
   constructor(private http: HttpClient, private store: Store) {}
 
   getById(id) {
-    console.log(id);
     this.http.get<any>(this._baseUrl + id).subscribe(
       (res) => this.store.dispatch(new ProductAction.Set(res)),
       (error) => console.log(error)

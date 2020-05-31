@@ -10,7 +10,7 @@ export class CartService {
   constructor(private store: Store<IAppState>) {}
 
   add(product, quantity) {
-    this.store.dispatch(new CartAction.Add(product));
+    this.store.dispatch(new CartAction.Add({ product, quantity }));
   }
 
   remove(id) {

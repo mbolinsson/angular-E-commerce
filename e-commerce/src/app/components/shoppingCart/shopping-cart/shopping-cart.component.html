@@ -1,0 +1,20 @@
+<div (click)="$event.stopPropagation()">
+  <app-shopping-cart-product
+    *ngFor="let item of cart | async"
+    [item]="item"
+  ></app-shopping-cart-product>
+
+  <div class="p-2 d-flex justify-content-between align-items-center">
+    <div class="ml-2">
+      <div class="total-price">
+        Totalt:
+
+        <span class="ml-1">{{ totalAmount | async }} SEK</span>
+      </div>
+      <small class="text-muted">inkl. moms</small>
+    </div>
+    <a class="text-white btn-grey btn btn-default" to="/checkout">
+      Gå till Kassan
+    </a>
+  </div>
+</div>

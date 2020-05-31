@@ -18,24 +18,26 @@
           <a class="nav-link" routerLink="products">Products</a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-5">
+      <ul class="navbar-nav m-auto">
         <li>
           <a
-            onClick="parentHandle"
             class="nav-link dropdown-toggle"
             id="navbarDropdownMenuLink-333"
             href="!#"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-          >
+            >{{ totalCartQuantity | async }}
             <i class="fas fa-shopping-cart"></i>
           </a>
           <div
-            class="dropdown-menu dropdown-menu-right z-depth-2 shopping-cart"
+            class="dropdown-menu dropdown-menu-center dropdown-menu dropdown-primary dropdown-default z-depth-2 shopping-cart"
           >
             <app-shopping-cart></app-shopping-cart>
           </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="signin">Sign In</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="register">Register</a>

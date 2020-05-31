@@ -31,158 +31,65 @@
           >First name must contain at least 2 characters.</small
         >
       </div>
-    </div>
 
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
+      <label for="email">Email</label>
       <input
         type="text"
-        id="lastName"
-        formControlName="lastName"
+        id="email"
+        formControlName="email"
         class="form-control"
         [class.is-invalid]="
-          regForm.controls.lastName.invalid && regForm.controls.lastName.touched
+          regForm.controls.email.invalid && regForm.controls.email.touched
+        "
+        autocomplete="off"
+      />
+
+      <div
+        *ngIf="regForm.controls.email.invalid && regForm.controls.email.touched"
+      >
+        <small
+          class="text-danger"
+          *ngIf="regForm.controls.email.errors.required"
+          >Email name is required.</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="regForm.controls.firstName.errors.minlength"
+          >Email must contain at least 6 characters.</small
+        >
+      </div>
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+        [class.is-invalid]="
+          regForm.controls.password.invalid && regForm.controls.password.touched
         "
         autocomplete="off"
       />
 
       <div
         *ngIf="
-          regForm.controls.lastName.invalid && regForm.controls.lastName.touched
+          regForm.controls.firstName.invalid &&
+          regForm.controls.firstName.touched
         "
       >
         <small
           class="text-danger"
-          *ngIf="regForm.controls.lastName.errors.required"
-          >Last name is required.</small
+          *ngIf="regForm.controls.firstName.errors.required"
+          >Password is required.</small
         >
         <small
           class="text-danger"
-          *ngIf="regForm.controls.lastName.errors.minlength"
-          >Last name must contain at least 2 characters.</small
+          *ngIf="regForm.controls.firstName.errors.minlength"
+          >Password must contain at least 5 characters.</small
         >
       </div>
     </div>
 
-    <div class="form-group">
-      <label for="addressline">Addressline</label>
-      <input
-        type="text"
-        id="addressline"
-        formControlName="addressline"
-        class="form-control"
-        [class.is-invalid]="
-          regForm.controls.addressline.invalid &&
-          regForm.controls.addressline.touched
-        "
-        autocomplete="off"
-      />
-
-      <div
-        *ngIf="
-          regForm.controls.addressline.invalid &&
-          regForm.controls.addressline.touched
-        "
-      >
-        <small
-          class="text-danger"
-          *ngIf="regForm.controls.addressline.errors.required"
-          >Addressline is required.</small
-        >
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="postalCode">Postal Code</label>
-      <input
-        type="text"
-        id="postalCode"
-        formControlName="postalCode"
-        class="form-control"
-        [class.is-invalid]="
-          regForm.controls.postalCode.invalid &&
-          regForm.controls.postalCode.touched
-        "
-        autocomplete="off"
-        maxlength="5"
-      />
-
-      <div
-        *ngIf="
-          regForm.controls.postalCode.invalid &&
-          regForm.controls.postalCode.touched
-        "
-      >
-        <small
-          class="text-danger"
-          *ngIf="regForm.controls.postalCode.errors.required"
-          >Postal code is required.</small
-        >
-        <small
-          class="text-danger"
-          *ngIf="
-            regForm.controls.postalCode.errors.minlength ||
-            regForm.controls.postalCode.errors.maxlength
-          "
-          >Postal code must contain 5 numbers.</small
-        >
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="city">City</label>
-      <input
-        type="text"
-        id="city"
-        formControlName="city"
-        class="form-control"
-        [class.is-invalid]="
-          regForm.controls.city.invalid && regForm.controls.city.touched
-        "
-        autocomplete="off"
-      />
-
-      <div
-        *ngIf="regForm.controls.city.invalid && regForm.controls.city.touched"
-      >
-        <small class="text-danger" *ngIf="regForm.controls.city.errors.required"
-          >City is required.</small
-        >
-      </div>
-    </div>
-
-    <div class="form-group">
-      <button
-        type="button"
-        class="btn btn-secondary"
-        (click)="addProgrammingSkill()"
-      >
-        Add Programming Skills
-      </button>
-    </div>
-    <div
-      class="form-group"
-      formArrayName="programmingSkills"
-      *ngFor="let skill of programmingSkills.controls; let i = index"
-    >
-      <div class="form-group">
-        <label [for]="i">Skill {{ i + 1 }}</label>
-
-        <div class="form-row">
-          <div class="col-3">
-            <input
-              type="text"
-              [id]="i"
-              [formControlName]="i"
-              class="form-control"
-              autocomplete="off"
-            />
-          </div>
-          <div class="col-1" (click)="removeProgrammingSkill(i)">
-            <i class="fas fa-times fa-2x mt-1 text-muted cursor"></i>
-          </div>
-        </div>
-      </div>
-    </div>
     <hr class="my-4" />
     <div class="form-check">
       <input

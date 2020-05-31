@@ -18,34 +18,16 @@ export class RegisterComponent {
   ngOnInit() {
     this.regForm = this.formBuilder.group({
       firstName: ['', [Validators.required, Validators.minLength(2)]],
-      lastName: ['', [Validators.required, Validators.minLength(2)]],
-      addressline: ['', Validators.required],
-      postalCode: [
-        '',
-        [Validators.required, Validators.minLength(5), Validators.maxLength(5)],
-      ],
-      city: ['', [Validators.required]],
-      programmingSkills: this.formBuilder.array([]),
+      password: ['', [Validators.required, Validators.minLength(5)]],
+      email: ['', [Validators.required, Validators.minLength(6)]],
       acceptTerms: [false, [Validators.requiredTrue]],
     });
   }
 
-  addProgrammingSkill() {
-    this.programmingSkills.push(this.formBuilder.control(''));
-  }
-
-  removeProgrammingSkill(index) {
-    this.programmingSkills.removeAt(index);
-  }
-
-  get programmingSkills() {
-    return this.regForm.get('programmingSkills') as FormArray;
-  }
-
   onSubmit() {
     this.userService.register(this.regForm.value).subscribe(
-      (res) => console.log('submitted and successful: ' + res),
-      (error) => console.error('submitted but failed: ' + error.message)
+      (res) => console.log('submit successful: ' + res),
+      (error) => console.error('submit failed: ' + error.message)
     );
   }
 }

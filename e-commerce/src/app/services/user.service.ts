@@ -5,12 +5,15 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class UserService {
-  private baseUrl: string = 'http://localhost:9999/api/users';
+  private baseUrl: string = 'http://localhost:3300/api/users';
 
   constructor(private http: HttpClient) {}
 
   register(payload) {
-    return this.http.post<any>(this.baseUrl, payload);
+    return this.http.post<any>(
+      'http://localhost:3300/api/users/register',
+      payload
+    );
   }
 
   login(payload) {
