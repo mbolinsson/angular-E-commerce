@@ -10,4 +10,5 @@ export interface ProductModel {
   price?: number;
   modified?: string;
   created?: string;
+  items?: any;
 }
