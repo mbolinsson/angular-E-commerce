@@ -15,8 +15,11 @@ import { ProductModel } from 'src/app/models/product.model';
 })
 export class ShoppingCartComponent implements OnInit {
   public cart;
+  public totalAmount: Observable<number>;
 
-  constructor(private store: Store<IAppState>) {}
+  constructor(private store: Store<IAppState>) {
+    this.totalAmount = this.store.select((store) => store.cart.totalAmount);
+  }
 
   ngOnInit(): void {
     this.cart = this.store.select((store) => store.cart.items);

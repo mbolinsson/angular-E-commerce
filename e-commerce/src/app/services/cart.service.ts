@@ -13,10 +13,6 @@ export class CartService {
     this.store.dispatch(new CartAction.Add({ product, quantity }));
   }
 
-  removeOneItem(product, quantity) {
-    this.store.dispatch(new CartAction.Add({ product, quantity }));
-  }
-
   remove(id) {
     this.store.dispatch(new CartAction.Remove(id));
   }

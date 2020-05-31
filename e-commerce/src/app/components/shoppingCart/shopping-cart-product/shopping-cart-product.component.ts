@@ -26,7 +26,6 @@ export class ShoppingCartProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.item);
     this.store
       .select((store) => store.product)
       .subscribe((res) => (this.product = res));
@@ -41,6 +40,6 @@ export class ShoppingCartProductComponent implements OnInit {
   }
 
   RemoveOne(product, quantity = -1) {
-    this.CartService.removeOneItem(product, quantity);
+    this.CartService.add(product, quantity);
   }
 }

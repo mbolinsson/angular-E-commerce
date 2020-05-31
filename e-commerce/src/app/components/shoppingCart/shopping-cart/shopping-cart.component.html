@@ -1,15 +1,4 @@
-<div>
-  <!-- {shoppingcart.map((product) => (
-    <ShoppingCartProduct key={product._id} product={product} />
-  ))}
-  {/*  -->
-  <!-- <div v-if="shoppingCart.length < 1" className="cart-item">
-    <div className="p-2 d-flex justify-content-center align-items-center">
-      <div className="d-flex align-items-center">Din kundvagn är tom.</div>
-    </div>
-    <div className="dropdown-divider"></div>
-  </div> */} -->
-
+<div (click)="$event.stopPropagation()">
   <app-shopping-cart-product
     *ngFor="let item of cart | async"
     [item]="item"
@@ -19,8 +8,8 @@
     <div class="ml-2">
       <div class="total-price">
         Totalt:
-        {{ cart.value }}
-        <span class="ml-1">totalCartAmount SEK</span>
+
+        <span class="ml-1">{{ totalAmount | async }} SEK</span>
       </div>
       <small class="text-muted">inkl. moms</small>
     </div>
